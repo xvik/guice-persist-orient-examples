@@ -13,9 +13,9 @@ All samples build with guice-persist-orient 3.1.1 (orientdb 2.0).
 
 ### Setup
 
-* [Base setup](https://github.com/xvik/guice-persist-orient-examples/tree/master/setup-base) 
+* [Base setup](setup-base) 
 basic configuration concepts with the simplest configuration for document database api 
-* [Object setup](https://github.com/xvik/guice-persist-orient-examples/tree/master/setup-object)
+* [Object setup](setup-object)
 configuration for object database api; mapping scheme from objects
 
 
