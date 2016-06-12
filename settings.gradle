@@ -1,3 +1,4 @@
 rootProject.name = 'guice-persist-orient-examples'
 
-include 'setup-base'
+include 'setup-base',
+        'setup-object'
