@@ -25,3 +25,9 @@ is almost the same as document demo, just using objects instead of ODocument ins
 
 See [SampleService](src/main/java/ru/vyarus/guice/persist/orient/examples/service/SampleService.java) for object api usage examples.
 Note that usage of projection or aggregate function in sql will lead to ODocument instances as a result. 
+
+### Test
+
+Sample [spock](http://spockframework.github.io/spock/docs/1.0/index.html) tests prepared to show test setup using in-memory database.
+ 
+[SampleServiceTest](src/test/groovy/ru/vyarus/guice/persist/orient/examples/service/SampleServiceTest.groovy)
