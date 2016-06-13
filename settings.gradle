@@ -1,4 +1,5 @@
 rootProject.name = 'guice-persist-orient-examples'
 
 include 'setup-base',
-        'setup-object'
+        'setup-object',
+        'setup-graph'

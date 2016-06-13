@@ -13,9 +13,12 @@ All samples build with guice-persist-orient 3.1.1 (orientdb 2.0).
 
 ### Setup
 
+Prefer reading samples in the same order because they assume previous samples knowledge.
+
 * [Base setup](setup-base) 
 basic configuration concepts with the simplest configuration for document database api 
 * [Object setup](setup-object)
 configuration for object database api; mapping scheme from objects
+* [Graph setup](setup-graph) configuration for graph api; graph construction; graph specific sql
 
 
