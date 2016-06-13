@@ -1,7 +1,7 @@
 package ru.vyarus.guice.persist.orient.examples.support
 
 import com.google.inject.AbstractModule
-import ru.vyarus.guice.persist.orient.examples.module.DbModule
+import ru.vyarus.guice.persist.orient.examples.module.ObjectDbModule
 
 /**
  * Guice module used for tests. Defines in-memory test db.
@@ -9,10 +9,10 @@ import ru.vyarus.guice.persist.orient.examples.module.DbModule
  * @author Vyacheslav Rusakov
  * @since 12.06.2016
  */
-class TestDbModule extends AbstractModule {
+class TestObjectDbModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        install(new DbModule("memory:test", "admin", "admin"))
+        install(new ObjectDbModule("memory:test", "admin", "admin"))
     }
 }

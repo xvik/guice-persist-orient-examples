@@ -14,13 +14,13 @@ compile ('ru.vyarus:guice-persist-orient:3.1.1'){
 }
 ```
 
-[DbModule](src/main/java/ru/vyarus/guice/persist/orient/examples/module/DbModule.java) uses 
+[ObjectDbModule](src/main/java/ru/vyarus/guice/persist/orient/examples/module/ObjectDbModule.java) uses 
 special SchemeInitializer (in document demo it was hand-written): PackageSchemeInitializer.
 It is used to update database model according to model classes (see [object mapping docs](https://github.com/xvik/guice-persist-orient#object-scheme-mapping)).
 
 ### Demo
 
-[DemoApp](src/main/java/ru/vyarus/guice/persist/orient/examples/DemoApp.java) 
+[ObjectDemoApp](src/main/java/ru/vyarus/guice/persist/orient/examples/ObjectDemoApp.java) 
 is almost the same as document demo, just using objects instead of ODocument instances.
 
 See [SampleService](src/main/java/ru/vyarus/guice/persist/orient/examples/service/SampleService.java) for object api usage examples.

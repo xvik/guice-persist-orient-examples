@@ -7,12 +7,12 @@ import spock.lang.Specification
  * @author Vyacheslav Rusakov
  * @since 12.06.2016
  */
-class DemoAppTest extends Specification {
+class ObjectDemoAppTest extends Specification {
 
     def "Check app correct"() {
 
         when: "running sample"
-        DemoApp.main()
+        ObjectDemoApp.main()
 
         then: "no exception"
         true

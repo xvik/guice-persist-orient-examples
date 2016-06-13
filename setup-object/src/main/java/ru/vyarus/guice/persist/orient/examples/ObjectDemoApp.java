@@ -4,7 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.persist.PersistService;
 import ru.vyarus.guice.persist.orient.examples.model.Sample;
-import ru.vyarus.guice.persist.orient.examples.module.DbModule;
+import ru.vyarus.guice.persist.orient.examples.module.ObjectDbModule;
 import ru.vyarus.guice.persist.orient.examples.service.SampleService;
 
 /**
@@ -13,10 +13,10 @@ import ru.vyarus.guice.persist.orient.examples.service.SampleService;
  * @author Vyacheslav Rusakov
  * @since 12.06.2016
  */
-public class DemoApp {
+public class ObjectDemoApp {
 
     public static void main(String[] args) {
-        final Injector injector = Guice.createInjector(new DbModule("memory:sample", "admin", "admin"));
+        final Injector injector = Guice.createInjector(new ObjectDbModule("memory:sample", "admin", "admin"));
         final PersistService persistService = injector.getInstance(PersistService.class);
         persistService.start();
 
