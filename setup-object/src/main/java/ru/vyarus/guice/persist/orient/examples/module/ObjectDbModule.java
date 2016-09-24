@@ -25,6 +25,7 @@ public class ObjectDbModule extends AbstractModule {
 
     @Override
     protected void configure() {
+        binder().disableCircularProxies();
         install(new OrientModule(url, user, password));
 
         /**

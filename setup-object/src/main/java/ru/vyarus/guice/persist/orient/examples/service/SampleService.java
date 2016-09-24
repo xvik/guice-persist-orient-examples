@@ -61,6 +61,6 @@ public class SampleService {
     public Sample detach(Sample sample) {
         // required to demonstrate importance of object detaching
         // (normally either all work with object must be under transaction or it must be detached after the query)
-        return context.getConnection().detach(sample);
+        return context.getConnection().detach(sample, true);
     }
 }

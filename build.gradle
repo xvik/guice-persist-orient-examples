@@ -15,7 +15,7 @@ allprojects {
 
     repositories { jcenter(); mavenCentral(); mavenLocal() }
     dependencies {
-        compile ('ru.vyarus:guice-persist-orient:3.1.1'){
+        compile ('ru.vyarus:guice-persist-orient:3.2.0'){
             // not excluding object and graph support for demo purposes
 //            exclude module: 'orientdb-graphdb'
 //            exclude module: 'orientdb-object'
