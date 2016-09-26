@@ -23,4 +23,6 @@ basic configuration concepts with the simplest configuration for document databa
 configuration for object database api; mapping scheme from objects
 * [Graph setup](setup-graph) configuration for graph api; graph construction; graph specific sql
 
+### Integration
 
+* [Play framework](https://github.com/xvik/guice-persist-orient-play-example) sample play integration
