@@ -1,6 +1,6 @@
 # guice-persist-orient examples
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)
-[![Build Status](http://img.shields.io/travis/xvik/guice-persist-orient-examples.svg)](https://travis-ci.org/xvik/guice-persist-orient-examples)
+[![Build Status](https://img.shields.io/travis/xvik/guice-persist-orient-examples.svg)](https://travis-ci.org/xvik/guice-persist-orient-examples)
 
 ### About
 
