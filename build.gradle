@@ -11,7 +11,7 @@ description = 'Guice-persist-orient examples'
 allprojects {
     apply plugin: 'groovy'
 
-    sourceCompatibility = 1.6
+    sourceCompatibility = 1.8
 
     repositories { jcenter(); mavenCentral(); mavenLocal() }
     dependencies {

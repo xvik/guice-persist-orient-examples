@@ -47,35 +47,27 @@ public class LocalDbApp {
                     Key.get(new TypeLiteral<PersistentContext<ODatabaseDocumentTx>>() {
                     }));
 
-            context.doInTransaction(new TxAction<Void>() {
-                @Override
-                public Void execute() throws Throwable {
-                    // unit of work defined
-
-                    noTxService.doSomething();
-
-                    return null;
-                }
+            context.doInTransaction(() -> {
+                // unit of work defined
+                noTxService.doSomething();
+                return null;
             });
 
 
             // now do one more manual transaction but with provided db object
-            final ODocument rec = context.doInTransaction(new SpecificTxAction<ODocument, ODatabaseDocumentTx>() {
-                @Override
-                public ODocument execute(ODatabaseDocumentTx db) throws Throwable {
-                    // service use @Transactional annotation for unit of work definition
-                    // in this case annotation will be ignored because unit of work is already defined
-                    final long cnt = service.count();
+            final ODocument rec = context.doInTransaction(db -> {
+                // service use @Transactional annotation for unit of work definition
+                // in this case annotation will be ignored because unit of work is already defined
+                final long cnt = service.count();
 
-                    // manually insert record
-                    final ODocument rec = db.newInstance(ManualSchemeInitializer.CLASS_NAME)
-                            .field("name", "Sample" + cnt)
-                            .field("amount", (int) (Math.random() * 200))
-                            .save();
-                    // detaching object before let it leave transaction scope
-                    rec.detach();
-                    return rec;
-                }
+                // manually insert record
+                final ODocument rec1 = db.newInstance(ManualSchemeInitializer.CLASS_NAME)
+                        .field("name", "Sample" + cnt)
+                        .field("amount", (int) (Math.random() * 200))
+                        .save();
+                // detaching object before let it leave transaction scope
+                rec1.detach();
+                return rec1;
             });
 
             System.out.println("Just inserted record: " + rec.toJSON());
