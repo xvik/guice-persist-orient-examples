@@ -23,6 +23,7 @@ basic configuration concepts with the simplest configuration for document databa
 configuration for object database api; mapping scheme from objects
 * [Graph setup](setup-graph) configuration for graph api; graph construction; graph specific sql
 * [Repository setup](setup-repository) configuration for using repositories and basic repository method samples
+* [Repository examples](repository-examples) many repository definition examples
 
 ### Integration
 
