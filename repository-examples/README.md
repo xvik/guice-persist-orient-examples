@@ -14,6 +14,8 @@ various ways to declare and use parameters in query
 bundled extensions usage
 * [Async query examples](src/main/java/ru/vyarus/guice/persist/orient/examples/repository/basic/AsyncQueryExamples.java)
 asynchronous queries examples
+* [Live query examples](src/main/java/ru/vyarus/guice/persist/orient/examples/repository/basic/LiveQueryExamples.java)
+live queries usage examples
 * [Function call examples](src/main/java/ru/vyarus/guice/persist/orient/examples/repository/basic/FunctionExamples.java)
 functions calling example
 * [Script examples](src/main/java/ru/vyarus/guice/persist/orient/examples/repository/basic/ScriptExamples.java)

@@ -75,9 +75,7 @@ public interface ResultConversionExamples {
     @Query("select count(@rid) from Model")
     int getCount();
 
-    // WARNING: automatic projection will NOT WORK here because it would lead to unnecessary overhead for all
-    // queries (check all queries for projection)
-    // fixed in 3.3.0
+    // list of strings returned instead of (wrapper) documents
     @Query("select name from Model")
     List<String> getNames();
 
