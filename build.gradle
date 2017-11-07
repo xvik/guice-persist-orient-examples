@@ -15,13 +15,13 @@ allprojects {
 
     repositories { jcenter(); mavenCentral(); mavenLocal() }
     dependencies {
-        compile ('ru.vyarus:guice-persist-orient:3.2.0'){
+        compile ('ru.vyarus:guice-persist-orient:3.3.0'){
             // not excluding object and graph support for demo purposes
 //            exclude module: 'orientdb-graphdb'
 //            exclude module: 'orientdb-object'
         }
 
-        testCompile 'org.spockframework:spock-guice:1.0-groovy-2.4'
+        testCompile 'org.spockframework:spock-guice:1.1-groovy-2.4'
     }
 
     test {
