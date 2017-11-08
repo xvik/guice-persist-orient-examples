@@ -80,10 +80,10 @@ public interface BasicsExamples {
     List<Vertex> selectAllVertex();
 
     // OrientVertex may be used directly
-    @Query("insert into VertexModel (name) values(:name)")
+    @Query("create vertex VertexModel set name=:name")
     OrientVertex createVertex(@Param("name") String name);
 
     // force graph connection to apply graph integrity checks
-    @Query(value = "delete from VertexModel where name = ?", connection = DbType.GRAPH)
+    @Query(value = "delete vertex VertexModel where name = ?", connection = DbType.GRAPH)
     int deleteVertex(String name);
 }
