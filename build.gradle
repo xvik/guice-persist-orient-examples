@@ -1,5 +1,5 @@
 plugins {
-    id 'com.github.ben-manes.versions' version '0.15.0'
+    id 'com.github.ben-manes.versions' version '0.17.0'
 }
 
 wrapper {
@@ -15,7 +15,7 @@ allprojects {
 
     repositories { jcenter(); mavenCentral(); mavenLocal() }
     dependencies {
-        compile ('ru.vyarus:guice-persist-orient:3.3.0'){
+        compile ('ru.vyarus:guice-persist-orient:3.3.2'){
             // not excluding object and graph support for demo purposes
 //            exclude module: 'orientdb-graphdb'
 //            exclude module: 'orientdb-object'

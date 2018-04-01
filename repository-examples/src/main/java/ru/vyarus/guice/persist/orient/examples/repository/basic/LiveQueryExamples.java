@@ -4,13 +4,13 @@ import com.google.inject.ProvidedBy;
 import com.google.inject.internal.DynamicSingletonProvider;
 import com.google.inject.persist.Transactional;
 import com.orientechnologies.orient.core.sql.query.OLiveResultListener;
+import com.tinkerpop.blueprints.Vertex;
 import ru.vyarus.guice.persist.orient.examples.model.Model;
 import ru.vyarus.guice.persist.orient.repository.command.ext.elvar.ElVar;
 import ru.vyarus.guice.persist.orient.repository.command.ext.listen.Listen;
 import ru.vyarus.guice.persist.orient.repository.command.live.LiveQuery;
 import ru.vyarus.guice.persist.orient.repository.command.live.listener.mapper.LiveQueryListener;
 import ru.vyarus.guice.persist.orient.repository.command.query.Query;
-import sun.security.provider.certpath.Vertex;
 
 /**
  * Live queries are used to subscribe to database changes.

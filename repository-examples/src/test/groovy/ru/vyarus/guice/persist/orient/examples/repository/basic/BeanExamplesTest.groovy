@@ -23,6 +23,7 @@ class BeanExamplesTest extends AbstractTest {
         when: "call method with implicit repository usage"
         repository.doSomething()
         then: "all ok"
+        true
 
         when: "call public method"
         def res = repository.publicQuery()
