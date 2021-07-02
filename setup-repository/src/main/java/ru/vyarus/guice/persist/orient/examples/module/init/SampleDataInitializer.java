@@ -2,7 +2,7 @@ package ru.vyarus.guice.persist.orient.examples.module.init;
 
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
+import com.orientechnologies.orient.core.db.object.ODatabaseObject;
 import ru.vyarus.guice.persist.orient.db.PersistentContext;
 import ru.vyarus.guice.persist.orient.db.data.DataInitializer;
 import ru.vyarus.guice.persist.orient.examples.model.Sample;
@@ -17,11 +17,11 @@ import ru.vyarus.guice.persist.orient.examples.model.Sample;
 public class SampleDataInitializer implements DataInitializer {
 
     @Inject
-    private PersistentContext<OObjectDatabaseTx> context;
+    private PersistentContext<ODatabaseObject> context;
 
     @Override
     public void initializeData() {
-        final OObjectDatabaseTx db = context.getConnection();
+        final ODatabaseObject db = context.getConnection();
 
         for (int i = 0; i < 10; i++) {
             /*

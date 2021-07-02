@@ -5,11 +5,9 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.TypeLiteral;
 import com.google.inject.persist.PersistService;
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import ru.vyarus.guice.persist.orient.db.PersistentContext;
-import ru.vyarus.guice.persist.orient.db.transaction.template.SpecificTxAction;
-import ru.vyarus.guice.persist.orient.db.transaction.template.TxAction;
 import ru.vyarus.guice.persist.orient.examples.module.DbModule;
 import ru.vyarus.guice.persist.orient.examples.module.init.ManualSchemeInitializer;
 import ru.vyarus.guice.persist.orient.examples.service.NoTxService;
@@ -27,7 +25,8 @@ import ru.vyarus.guice.persist.orient.examples.service.SampleService;
  */
 public class LocalDbApp {
 
-    public static String DB_PATH = "c:/Temp/sampledb";
+    // just an example (test overrides this var)
+    public static String DB_PATH = "c:/Temp/db/sample";
 
     public static void main(String[] args) {
         final Injector injector = Guice.createInjector(new DbModule("plocal:" + DB_PATH, "admin", "admin"));
@@ -42,9 +41,9 @@ public class LocalDbApp {
             // as an sample we will use service without unit of work defined
             // so transaction must be defined manually
             final NoTxService noTxService = injector.getInstance(NoTxService.class);
-            // normally you will simply inject this as PersistentContext<ODatabaseDocumentTx>
-            final PersistentContext<ODatabaseDocumentTx> context = injector.getInstance(
-                    Key.get(new TypeLiteral<PersistentContext<ODatabaseDocumentTx>>() {
+            // normally you will simply inject this as PersistentContext<ODatabaseDocument>
+            final PersistentContext<ODatabaseDocument> context = injector.getInstance(
+                    Key.get(new TypeLiteral<PersistentContext<ODatabaseDocument>>() {
                     }));
 
             context.doInTransaction(() -> {
@@ -61,7 +60,7 @@ public class LocalDbApp {
                 final long cnt = service.count();
 
                 // manually insert record
-                final ODocument rec1 = db.newInstance(ManualSchemeInitializer.CLASS_NAME)
+                final ODocument rec1 = db.<ODocument>newInstance(ManualSchemeInitializer.CLASS_NAME)
                         .field("name", "Sample" + cnt)
                         .field("amount", (int) (Math.random() * 200))
                         .save();

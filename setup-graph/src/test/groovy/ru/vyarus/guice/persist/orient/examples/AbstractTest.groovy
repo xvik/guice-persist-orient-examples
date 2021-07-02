@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.google.inject.persist.PersistService
 import com.orientechnologies.orient.core.Orient
 import com.tinkerpop.blueprints.impls.orient.OrientBaseGraph
+import ru.vyarus.guice.persist.orient.db.OrientDBFactory
 import ru.vyarus.guice.persist.orient.db.PersistentContext
 import ru.vyarus.guice.persist.orient.examples.support.TestGraphDbModule
 import spock.guice.UseModules
@@ -22,6 +23,8 @@ abstract class AbstractTest extends Specification {
     PersistService persistService
     @Inject
     PersistentContext<OrientBaseGraph> context
+    @Inject
+    OrientDBFactory info
 
     void setup() {
         persistService.start()
@@ -29,7 +32,10 @@ abstract class AbstractTest extends Specification {
 
     void cleanup() {
         persistService.stop()
-        // killing storage to drop database and grant fresh state between tests
-        Orient.instance().closeAllStorages()
+        def db = info.createOrientDB()
+        if (db.exists(info.getDbName())) {
+            db.drop(info.getDbName())
+        }
+        db.close()
     }
 }

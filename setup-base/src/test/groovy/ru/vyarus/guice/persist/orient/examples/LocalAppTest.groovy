@@ -2,6 +2,8 @@ package ru.vyarus.guice.persist.orient.examples
 
 import spock.lang.Specification
 
+import java.nio.file.Files
+
 
 /**
  * @author Vyacheslav Rusakov
@@ -12,9 +14,9 @@ class LocalAppTest extends Specification {
     File dbdir
 
     void setup() {
-        dbdir = File.createTempDir()
+        dbdir = Files.createTempDirectory('sampledb').toFile()
         // override path to controlled dir
-        LocalDbApp.DB_PATH = dbdir.absolutePath
+        LocalDbApp.DB_PATH = dbdir.absolutePath + '/test'
     }
 
     void cleanup() {

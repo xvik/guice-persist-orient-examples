@@ -2,7 +2,7 @@ package ru.vyarus.guice.persist.orient.examples.module.init;
 
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import ru.vyarus.guice.persist.orient.db.PersistentContext;
 import ru.vyarus.guice.persist.orient.db.data.DataInitializer;
@@ -17,7 +17,7 @@ import ru.vyarus.guice.persist.orient.db.data.DataInitializer;
 public class SampleDataInitializer implements DataInitializer {
 
     @Inject
-    private PersistentContext<ODatabaseDocumentTx> context;
+    private PersistentContext<ODatabaseDocument> context;
 
     @Override
     public void initializeData() {
@@ -26,7 +26,7 @@ public class SampleDataInitializer implements DataInitializer {
         // Unit of work must be defined before calling orient api:  the simplest way is to use @Transactional
         // on class or method
 
-        final ODatabaseDocumentTx db = context.getConnection();
+        final ODatabaseDocument db = context.getConnection();
         if (db.countClass(ManualSchemeInitializer.CLASS_NAME) > 0) {
             // perform initialization only in case of empty table
             return;
@@ -34,7 +34,7 @@ public class SampleDataInitializer implements DataInitializer {
 
         // low level api used to insert records, but the same could be done with sql insert commands
         for (int i = 0; i < 10; i++) {
-            final ODocument rec = db.newInstance(ManualSchemeInitializer.CLASS_NAME)
+            final ODocument rec = db.<ODocument>newInstance(ManualSchemeInitializer.CLASS_NAME)
                     .field("name", "Sample" + i)
                     .field("amount", (int) (Math.random() * 200));
             rec.save();

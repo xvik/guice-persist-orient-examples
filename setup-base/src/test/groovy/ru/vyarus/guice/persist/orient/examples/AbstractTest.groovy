@@ -2,7 +2,7 @@ package ru.vyarus.guice.persist.orient.examples
 
 import com.google.inject.Inject
 import com.google.inject.persist.PersistService
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument
 import ru.vyarus.guice.persist.orient.db.PersistentContext
 import ru.vyarus.guice.persist.orient.examples.support.TestDbModule
 import spock.guice.UseModules
@@ -20,7 +20,7 @@ abstract class AbstractTest extends Specification {
     @Inject
     PersistService persistService
     @Inject
-    PersistentContext<ODatabaseDocumentTx> context
+    PersistentContext<ODatabaseDocument> context
 
     void setup() {
         persistService.start()

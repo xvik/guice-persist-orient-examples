@@ -2,7 +2,7 @@ package ru.vyarus.guice.persist.orient.examples.service;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
 import ru.vyarus.guice.persist.orient.db.PersistentContext;
 import ru.vyarus.guice.persist.orient.examples.module.init.ManualSchemeInitializer;
 
@@ -16,7 +16,7 @@ import ru.vyarus.guice.persist.orient.examples.module.init.ManualSchemeInitializ
 public class NoTxService {
 
     @Inject
-    private PersistentContext<ODatabaseDocumentTx> context;
+    private PersistentContext<ODatabaseDocument> context;
 
     public void doSomething() {
         // it doesn't matter what method actually do

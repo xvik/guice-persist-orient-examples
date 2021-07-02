@@ -1,7 +1,7 @@
 package ru.vyarus.guice.persist.orient.examples.module.init;
 
 import com.google.inject.Inject;
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
 import com.orientechnologies.orient.core.metadata.schema.OSchema;
 import com.orientechnologies.orient.core.metadata.schema.OType;
@@ -22,14 +22,14 @@ public class ManualSchemeInitializer implements SchemeInitializer {
 
     // here document api used in generic, but it may be object or graph api class if required
     @Inject
-    private PersistentContext<ODatabaseDocumentTx> context;
+    private PersistentContext<ODatabaseDocument> context;
 
     @Override
     public void initialize() {
         // method is called under unit of work (with NOTX transaction mode,
         // because orient "DDL" must be executed in this mode).
 
-        final ODatabaseDocumentTx db = context.getConnection();
+        final ODatabaseDocument db = context.getConnection();
         final OSchema schema = db.getMetadata().getSchema();
 
         // creating class only if it isn't already exists

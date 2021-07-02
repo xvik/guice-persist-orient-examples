@@ -9,8 +9,9 @@ Usage examples for [guice-persist-orient](https://github.com/xvik/guice-persist-
 If you can't find answer for your problem in provided examples, please request new sample by 
 [creating new issue](https://github.com/xvik/guice-persist-orient-examples/issues).
 
-All samples build with guice-persist-orient 3.3.0 (orientdb 2.2).
+All samples build with guice-persist-orient 4.0.0 (orientdb 3.0).
 
+* Examples for [v3.3.2 and orient 2.2.x](https://github.com/xvik/guice-persist-orient-examples/tree/orient-2.2.x)
 * Examples for [v3.2.0 and orient 2.1.x](https://github.com/xvik/guice-persist-orient-examples/tree/orient-2.1.x)
 * Examples for [v3.1.1 and orient 2.0.x](https://github.com/xvik/guice-persist-orient-examples/tree/orient-2.0.x) 
 

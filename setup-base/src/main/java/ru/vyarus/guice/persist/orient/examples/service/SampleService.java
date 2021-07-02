@@ -3,7 +3,7 @@ package ru.vyarus.guice.persist.orient.examples.service;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.persist.Transactional;
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.OCommandSQL;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
@@ -23,7 +23,7 @@ import java.util.List;
 public class SampleService {
 
     @Inject
-    private PersistentContext<ODatabaseDocumentTx> context;
+    private PersistentContext<ODatabaseDocument> context;
 
     public long count() {
         return context.getConnection().countClass(ManualSchemeInitializer.CLASS_NAME);

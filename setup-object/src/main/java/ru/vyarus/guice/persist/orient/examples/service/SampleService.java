@@ -3,10 +3,10 @@ package ru.vyarus.guice.persist.orient.examples.service;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.persist.Transactional;
+import com.orientechnologies.orient.core.db.object.ODatabaseObject;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.OCommandSQL;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import ru.vyarus.guice.persist.orient.db.PersistentContext;
 import ru.vyarus.guice.persist.orient.examples.model.Sample;
 
@@ -21,11 +21,11 @@ import java.util.List;
 public class SampleService {
 
     @Inject
-    private PersistentContext<OObjectDatabaseTx> context;
+    private PersistentContext<ODatabaseObject> context;
 
     public long count() {
         // now we can use class directly instead of string name
-        return context.getConnection().countClass(Sample.class);
+        return context.getConnection().countClass(Sample.class.getSimpleName());
     }
 
     public long count2() {

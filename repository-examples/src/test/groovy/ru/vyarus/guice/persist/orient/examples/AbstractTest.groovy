@@ -2,8 +2,9 @@ package ru.vyarus.guice.persist.orient.examples
 
 import com.google.inject.Inject
 import com.google.inject.persist.PersistService
-import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx
+import com.orientechnologies.orient.core.db.OrientDB
+import com.orientechnologies.orient.core.db.object.ODatabaseObject
+import ru.vyarus.guice.persist.orient.db.OrientDBFactory
 import ru.vyarus.guice.persist.orient.db.PersistentContext
 import ru.vyarus.guice.persist.orient.examples.support.TestRepoExamplesModule
 import spock.guice.UseModules
@@ -21,7 +22,9 @@ abstract class AbstractTest extends Specification {
     @Inject
     PersistService persistService
     @Inject
-    PersistentContext<OObjectDatabaseTx> context
+    PersistentContext<ODatabaseObject> context
+    @Inject
+    OrientDBFactory factory
 
     void setup() {
         persistService.start()
@@ -29,9 +32,10 @@ abstract class AbstractTest extends Specification {
 
     void cleanup() {
         persistService.stop()
-        def db = new ODatabaseDocumentTx('memory:test')
-        if (db.exists()) {
-            db.open('admin', 'admin').drop()
+        OrientDB db = factory.createOrientDB()
+        if (db.exists(factory.getDbName())) {
+            db.drop(factory.getDbName())
         }
+        db.close()
     }
 }
