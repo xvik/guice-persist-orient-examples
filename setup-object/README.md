@@ -9,10 +9,12 @@ could still be used together with object api.
 This sample requires only object api, so will work with graph apis excluded:
 
 ```java
-compile ('ru.vyarus:guice-persist-orient:3.1.1'){
-    exclude module: 'orientdb-graphdb'       
-}
+implementation ('ru.vyarus:guice-persist-orient:4.0.0')
+implementation "com.orientechnologies:orientdb-object:3.0.38"
+//implementation "com.orientechnologies:orientdb-graphdb:3.0.38"
 ```
+
+NOTE: current repositories implementation does not support OresultSet, streams and OVertex and OEdge objects 
 
 [ObjectDbModule](src/main/java/ru/vyarus/guice/persist/orient/examples/module/ObjectDbModule.java) uses 
 special SchemeInitializer (in document demo it was hand-written): PackageSchemeInitializer.

@@ -9,10 +9,13 @@ could still be used together with graph api (actually object api could be used t
 This sample requires only graph api, so will work with object apis excluded:
 
 ```java
-compile ('ru.vyarus:guice-persist-orient:3.1.1'){
-    exclude module: 'orientdb-object'       
-}
+implementation ('ru.vyarus:guice-persist-orient:4.0.0')
+//implementation "com.orientechnologies:orientdb-object:3.0.38"
+implementation "com.orientechnologies:orientdb-graphdb:3.0.38"
 ```
+
+NOTE: currently repositories work only with thinkerpop 2 objects (Vertex, Edge), conversion to orient native OVertex and OEdge is not supported
+(orientdb-graphdb required for thinkerpop2 support)
 
 [GraphDbModule](src/main/java/ru/vyarus/guice/persist/orient/examples/module/GraphDbModule.java) defines
 scheme initialized and data initializer (by analogy with document demo). 

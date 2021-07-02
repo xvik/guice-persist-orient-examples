@@ -5,10 +5,9 @@ Sample introduce base configuration concepts using bare minimum of guice-persist
 This sample requires only document api (the lowest api for orient), so will work with object and graph apis excluded:
 
 ```java
-compile ('ru.vyarus:guice-persist-orient:3.1.1'){
-    exclude module: 'orientdb-graphdb'
-    exclude module: 'orientdb-object'       
-}
+implementation ('ru.vyarus:guice-persist-orient:4.0.0')
+//implementation "com.orientechnologies:orientdb-object:3.0.38"
+//implementation "com.orientechnologies:orientdb-graphdb:3.0.38"
 ```
 
 [DbModule](src/main/java/ru/vyarus/guice/persist/orient/examples/module/DbModule.java) class 
