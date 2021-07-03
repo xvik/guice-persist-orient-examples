@@ -15,7 +15,7 @@ subprojects {
 
     repositories { mavenLocal(); mavenCentral() }
     dependencies {
-        implementation ('ru.vyarus:guice-persist-orient:4.0.0-SNAPSHOT')
+        implementation ('ru.vyarus:guice-persist-orient:4.0.0')
         implementation "com.orientechnologies:orientdb-object:3.0.38"
         implementation "com.orientechnologies:orientdb-graphdb:3.0.38"
 
