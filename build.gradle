@@ -15,9 +15,9 @@ subprojects {
 
     repositories { mavenLocal(); mavenCentral() }
     dependencies {
-        implementation ('ru.vyarus:guice-persist-orient:4.0.0')
-        implementation "com.orientechnologies:orientdb-object:3.0.38"
-        implementation "com.orientechnologies:orientdb-graphdb:3.0.38"
+        implementation ('ru.vyarus:guice-persist-orient:4.1.0')
+        implementation "com.orientechnologies:orientdb-object:3.1.12"
+        implementation "com.orientechnologies:orientdb-graphdb:3.1.12"
 
         testImplementation 'org.spockframework:spock-guice:2.0-groovy-2.5'
     }
